@@ -1,0 +1,67 @@
+@import url('../fonts/fonts.css');
+@import url('color-scheme.css');
+@import url('assesment.css');
+@import url('login.css');
+
+html {
+	width: 100%;
+	height: 100%;
+	overflow-x: hidden;
+}
+
+body {
+	font-family: "Oxygen", sans-serif;
+	/*background-color: var(--primary-color);*/
+}
+
+.form-control {
+	border-radius: 15px;
+	border: none;
+	padding: 12px;
+}
+
+.form-control:focus,.form-control:active {
+	border: none;
+}
+
+.btn {
+	padding: 12px;
+	border-radius: 15px;
+	border: none;
+}
+
+.btn-primary {
+	color: white;
+	background-color: var(--primary-color-dark);
+}
+
+.btn-primary:active, .btn-primary:focus, .btn-primary:hover {
+	background-color: #5e4ef5!important;
+	outline: none;
+	box-shadow: unset!important;
+}
+
+
+.btn-white {
+	color: var(--primary-color-dark);
+	background-color: white;
+}
+
+.card {
+	border-radius: 15px;
+}
+
+.bg {
+	min-height: 100vh;
+}
+
+a, a:hover {
+	color: var(--primary-color);
+}
+
+@media only screen and (min-width: 768px) {
+	.wrapper {
+		max-width: 500px;
+		margin: auto;
+	}
+}

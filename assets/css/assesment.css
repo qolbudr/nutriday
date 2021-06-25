@@ -1,0 +1,117 @@
+@import url('color-scheme.css');
+
+.assesment {
+	color: white;
+	overflow-x: hidden;
+	
+}
+
+.assesment .title {
+	font-size: 17px;
+	font-weight: bold;
+	display: flex;
+	justify-content: center;
+}
+
+.assesment .indicator {
+	margin-top: 20px;
+	display: flex;
+	justify-content: space-around;
+}
+
+.indicator .item {
+	background-color: var(--primary-color-light);
+	width: 19%;
+	height: 2px;
+}
+
+.indicator .item.active {
+	background-color: var(--primary-color-dark);
+}
+
+.assesment .subtitle {
+	font-size: 14px;
+	display: flex;
+	justify-content: center;
+	margin-top: 20px;
+	text-align: center;
+}
+
+.assesment .content {
+	max-width: 100%;
+	min-height: 70vh;
+	margin-top: 20px;
+}
+
+.assesment .rail {
+	width: 500%;
+	min-height: 70vh;
+	display: flex;
+	align-items: center;
+}
+
+.assesment-0,.assesment-1,.assesment-2,.assesment-3,.assesment-4 {
+	width: 20%;
+	padding: 10px;
+	transition: 0.3s ease-in;
+	margin-top: 5vh;
+}
+
+.gender-select {
+	background-color: var(--secondary-color);
+	padding: 30px;
+	cursor: pointer;
+	border-radius: 10px;
+	box-shadow: 0px 0px 9px 3px var(--primary-color-dark);
+	-webkit-box-shadow: 0px 0px 9px 3px var(--primary-color-dark);
+	-moz-box-shadow: 0px 0px 9px 3px var(--primary-color-dark);
+}
+
+.gender-select:hover {
+	background-color: var(--primary-color-dark);
+}
+
+.gender-select img {
+	width: 100%;
+	justify-content: center;
+}
+
+.assesment-4 {
+	color: black;
+	font-size: 13px;
+}
+
+.assesment-4 .card img {
+	width: 100%;
+}
+
+.assesment-4 .activity-title {
+	color: var(--primary-color-dark);
+	font-size: 15px;
+	font-weight: bold;
+}
+
+.assesment-4 .activity-subtitle {
+	font-size: 10px;
+}
+
+
+@media only screen and (min-width: 768px) {
+	.assesment-0 .col-6 {
+		padding: 8%;
+	}
+
+	.gender-select {
+		box-shadow: 0px 0px 22px 3px var(--primary-color-dark);
+		-webkit-box-shadow: 0px 0px 22px 3px var(--primary-color-dark);
+		-moz-box-shadow: 0px 0px 22px 3px var(--primary-color-dark);
+	}
+
+	.assesment-4 .activity-subtitle {
+		font-size: unset;
+	}
+
+	.assesment-4 .card img {
+		width: 50%;
+	}
+}
