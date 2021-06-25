@@ -1,10 +1,9 @@
-import User from '../model/user.js';
-
-var user = new User();
+var user;
 
 $(".btn-login").click(function() {
 	const email = $(`[name='email']`).val()
 	const password = $(`[name='password']`).val()
+	user = new User();
 	user.email = email;
 	user.password = password;
 	user.login();
@@ -18,6 +17,6 @@ $(".btn-logout").click(function() {
 	user.logout();
 })
 
-$(".btn-register").click(function() {
+$(".goto-register").click(function() {
 	Router.navigate('register')
 })

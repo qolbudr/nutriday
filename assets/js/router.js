@@ -5,20 +5,11 @@ const Router = {
          type : 'get',
          url : `assets/js/page/${page}.html`,
          success : function(result){
-         	($("#loaded").html()) ? $("#loaded").html('') : null;
             $(".changed-wrapper").html(result)
-
-
-            var element = document.createElement('script')
-            element.src = `assets/js/page/${page}.js`
-            element.id = 'loaded-js'
-            element.type = 'module'
-
             if(typeof parameter != "undefined") {
             	param = parameter;
             }
-
-            $("#loaded").append(element)
+            $.getScript(`assets/js/page/${page}.js`)
          }
      })
 	}

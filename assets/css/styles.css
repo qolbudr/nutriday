@@ -2,6 +2,7 @@
 @import url('color-scheme.css');
 @import url('assesment.css');
 @import url('login.css');
+@import url('register.css');
 
 html {
 	width: 100%;

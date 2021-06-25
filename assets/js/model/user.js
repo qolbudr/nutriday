@@ -1,19 +1,30 @@
-export default class User {
+class User {
 	constructor() {
 		this.email;
 		this.password;
-		this.user;
+		this.name;
 	}
 
 	login() {
 		firebase.auth().signInWithEmailAndPassword(this.email, this.password)
 	  .then((userCredential) => {
-	  	user = firebase.auth().currentUser;
+	  	const user = firebase.auth().currentUser;
+	  	if(user.emailVerified == true) {
+	  		const localData = {
+	  			'uid': user.uid,
+	  			'email': user.email,
+	  			'displayName': user.displayName
+	  		}
+
+	  		window.localStorage.setItem('auth', JSON.stringify(localData));
+	  	} else {
+	  		
+	  	}
 	  })
 	  .catch((error) => {
 	    var errorCode = error.code;
 	    var errorMessage = error.message;
-	    return swal({title: "Error", text: errorMessage ,icon: "error", buttons: { hapus: "OK" }})
+	    return swal({title: "Error", text: errorMessage, icon: "error", buttons: { hapus: "OK" }})
 	  });
 	}
 
@@ -34,6 +45,11 @@ export default class User {
 	register() {
 		firebase.auth().createUserWithEmailAndPassword(this.email, this.password).then((userCredential) => {
 	    firebase.auth().currentUser.sendEmailVerification();
+	    firebase.auth().currentUser.updateProfile({
+			  displayName: this.name
+			}).then(() => {
+				return swal({title: "Success", text: "Registrasi berhasil silahkan konfirmasi email anda", icon: "success", buttons: { hapus: "OK" }})
+			})
 	  })
 	  .catch((error) => {
 	    var errorCode = error.code;

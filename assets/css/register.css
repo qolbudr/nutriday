@@ -1,0 +1,25 @@
+@import url('color-scheme.css');
+
+.register-title {
+	font-weight: bold;
+	font-size: 18px;
+}
+
+.register-subtitle {
+	font-size: 14px;
+}
+
+.register-logo img {
+	max-width: 30%;
+}
+
+.form-group {
+	position: relative;
+}
+
+.leading-icon {
+	position: absolute;
+	color: var(--primary-color);
+	left: 15px;
+	top: 10px;
+}
