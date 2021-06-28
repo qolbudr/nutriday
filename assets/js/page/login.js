@@ -10,6 +10,7 @@ $(".btn-login").click(function() {
 })
 
 $(".btn-login-google").click(function() {
+	user = new User();
 	user.loginWithGoogle();
 })
 

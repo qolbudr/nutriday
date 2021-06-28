@@ -9,20 +9,22 @@
 	<body>
 		<div class="changed-wrapper m-0 p-0">
 		</div>
-		<div id="loaded">
+		<div id="loaded-js">
+		</div>
+		<div id="loader">
+			<div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
 		</div>
 		<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
 		<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-analytics.js"></script>
 		<script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-auth.js"></script>
-	  <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-firestore.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-firestore.js"></script>
 		<script type="text/javascript" src="assets/js/jquery-3.2.1.slim.min.js"></script>
 		<script type="text/javascript" src="assets/js/popper.min.js"></script>
 		<script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
 		<script type="text/javascript" src="assets/js/sweetalert.min.js"></script>
-		<script type="text/javascript" src="assets/js/model/user.js"></script>
 		<script type="text/javascript" src="assets/js/router.js"></script>
+		<script type="text/javascript" src="assets/js/loader.js"></script>
 		<script type="text/javascript">
-			Router.navigate('login')
 			var firebaseConfig = {
 			   apiKey: "AIzaSyBCwHsBVCxEYlI-perlLJ_pA7zyyB-_03E",
 			   authDomain: "nutriday-e8548.firebaseapp.com",
@@ -33,8 +35,18 @@
 			   measurementId: "G-WZ8HP1882D"
 		   };
 
-		  firebase.initializeApp(firebaseConfig);
+		  var app = firebase.initializeApp(firebaseConfig);
 		  firebase.analytics();
+
+		  var db = firebase.firestore(app);
+
+		  firebase.auth().onAuthStateChanged((user) => {
+		  	if(user.uid) {
+					Router.navigate('assesment');
+				} else {
+					Router.navigate('login')
+				}
+			})
 		</script>
 	</body>
 </html>

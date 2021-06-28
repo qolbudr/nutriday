@@ -1,0 +1,51 @@
+@import url('color-scheme.css');
+
+.assesment-result {
+	overflow-x: hidden;
+	color: black;
+}
+
+.assesment-result .title {
+	font-size: 17px;
+	font-weight: bold;
+	display: flex;
+	justify-content: center;
+}
+
+.assesment-result .subtitle {
+	font-size: 14px;
+	display: flex;
+	justify-content: center;
+	margin-top: 20px;
+	text-align: center;
+}
+
+.assesment-result .content {
+	width: 100%;
+	min-height: calc(100vh - 120px);
+	margin-top: 20px;
+	display: flex;
+	justify-content: center;
+}
+
+.assesment-result .result-detail {
+	width: 100%;
+}
+
+.assesment-result .btn-primary {
+	bottom: 0;
+}
+
+.assesment-result .card {
+	color: white!important;
+	outline: none;
+	border-color: transparent;
+}
+
+.assesment-result .card-subtitle {
+	font-size: 11px;
+}
+
+.note {
+	font-size: 10px;
+}

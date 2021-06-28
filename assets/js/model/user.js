@@ -6,52 +6,69 @@ class User {
 	}
 
 	login() {
+    $("#loader").css('visibility', 'visible')
+    $(".changed-wrapper").css('filter', 'blur(5px)');
 		firebase.auth().signInWithEmailAndPassword(this.email, this.password)
 	  .then((userCredential) => {
+	  	$("#loader").css('visibility', 'hidden')
+      $(".changed-wrapper").css('filter', 'unset');
 	  	const user = firebase.auth().currentUser;
 	  	if(user.emailVerified == true) {
-	  		const localData = {
-	  			'uid': user.uid,
-	  			'email': user.email,
-	  			'displayName': user.displayName
-	  		}
-
-	  		window.localStorage.setItem('auth', JSON.stringify(localData));
+	  		Router.navigate('assesment')
 	  	} else {
-	  		
+	  		$("#loader").css('visibility', 'hidden')
+      	$(".changed-wrapper").css('filter', 'unset');
+	  		return swal({title: "Error", text: 'Please verify your email', icon: "error", buttons: { hapus: "OK" }})
 	  	}
 	  })
 	  .catch((error) => {
 	    var errorCode = error.code;
 	    var errorMessage = error.message;
+	    $("#loader").css('visibility', 'hidden')
+      $(".changed-wrapper").css('filter', 'unset');
 	    return swal({title: "Error", text: errorMessage, icon: "error", buttons: { hapus: "OK" }})
 	  });
 	}
 
 	loginWithGoogle() {
 		var provider = new firebase.auth.GoogleAuthProvider();
+    $("#loader").css('visibility', 'visible')
+    $(".changed-wrapper").css('filter', 'blur(5px)');
 		firebase.auth()
 	  .signInWithPopup(provider)
 	  .then((result) => {
 	    var credential = result.credential;
 	    var token = credential.accessToken;
 	    var user = result.user;
+  		$("#loader").css('visibility', 'hidden')
+      $(".changed-wrapper").css('filter', 'unset');
+	  	Router.navigate('assesment')
 	  }).catch((error) => {
 	    var errorCode = error.code;
 	    var errorMessage = error.message;
+	    $("#loader").css('visibility', 'hidden')
+      $(".changed-wrapper").css('filter', 'unset');
+	    return swal({title: "Error", text: errorMessage ,icon: "error", buttons: { hapus: "OK" }})
 	  });
 	}
 
 	register() {
+    $("#loader").css('visibility', 'visible')
+    $(".changed-wrapper").css('filter', 'blur(5px)');
 		firebase.auth().createUserWithEmailAndPassword(this.email, this.password).then((userCredential) => {
 	    firebase.auth().currentUser.sendEmailVerification();
 	    firebase.auth().currentUser.updateProfile({
-			  displayName: this.name
+			  displayName: this.name,
+			  photoURL: 'https://ui-avatars.com/api/?name='+ encodeURI(this.name) +'&background=random'
 			}).then(() => {
-				return swal({title: "Success", text: "Registrasi berhasil silahkan konfirmasi email anda", icon: "success", buttons: { hapus: "OK" }})
+				$("#loader").css('visibility', 'hidden')
+	      $(".changed-wrapper").css('filter', 'unset');
+				return swal({title: "Success", text: "Registrtion success please check your email for confirmation", icon: "success", buttons: { hapus: "OK" }})
 			})
 	  })
 	  .catch((error) => {
+	  	$("#loader").css('visibility', 'hidden')
+      $(".changed-wrapper").css('filter', 'unset');
 	    var errorCode = error.code;
 	    var errorMessage = error.message;
 	    return swal({title: "Error", text: errorMessage ,icon: "error", buttons: { hapus: "OK" }})
@@ -59,9 +76,15 @@ class User {
 	}
 
 	logout() {
+		$("#loader").css('visibility', 'visible')
+    $(".changed-wrapper").css('filter', 'blur(5px)');
 		firebase.auth().signOut().then(() => {
-			console.log('signOut');
+			$("#loader").css('visibility', 'hidden')
+      $(".changed-wrapper").css('filter', 'unset');
+      Router.navgate('login')
 		}).catch((error) => {
+			$("#loader").css('visibility', 'hidden')
+      $(".changed-wrapper").css('filter', 'unset');
 		  return swal({title: "Error", text: error.message ,icon: "error", buttons: { hapus: "OK" }})
 		});
 	}
