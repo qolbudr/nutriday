@@ -1,0 +1,110 @@
+.home {
+	color: white;
+}
+
+.greeting .calendar {
+	font-size: 10px;
+}
+
+.profile-picture .round {
+	width: 50px;
+	height: 50px;
+	border-radius: 50px;
+	background-color: white;
+}
+
+.nutrition-need {
+	width: 100%;
+	padding: 15px;
+	background-color: var(--primary-color-dark);
+	border-radius: 10px;
+}
+
+.home .progress {
+	background-color: var(--primary-color-light);
+	border-radius: 0;
+  height: 10px;
+}
+
+.home .progress-bar {
+	background-color: var(--primary-color);
+}
+
+.home-body {
+	min-height: calc(100vh - 208px);
+	border-radius: 30px 30px 0 0;
+	padding: 15px;
+}
+
+.btn-date {
+	background-color: var(--primary-color);
+  padding: 10px 20px;
+  border-radius: 5px;
+  color: white;
+}
+
+.btn-now {
+	background-color: white;
+	color: black;
+	padding: 10px 20px;
+	border-radius: 5px;
+}
+
+.shadowed {
+	box-shadow: 0px 0px 23px 3px #a9a9a92b;
+	-webkit-box-shadow: 0px 0px 23px 3px #a9a9a92b;
+	-moz-box-shadow: 0px 0px 23px 3px #a9a9a92b;
+}
+
+.daily-tracker .title h5 {
+	font-weight: bold;
+	font-size: 12px;
+	color:  var(--primary-color-dark);
+}
+
+.subtitle i {
+	color:  var(--primary-color-dark);
+	font-size: 14px;
+}
+
+.btn-add-tracker {
+	background-color: var(--primary-color-light);
+	color: var(--primary-color-dark);
+	padding: 5px 10px !important;
+}
+
+.bottom-navbar {
+	background-color: white;
+  position: fixed;
+  z-index: 99;
+  bottom: 0;
+  padding: 15px;
+  border-radius: 10px 10px 0 0;
+  width: calc(100%);
+  margin-left: -1rem;
+  color: black;
+}
+
+.daily-tracker .subtitle {
+	color:  black;
+}
+
+.bottom-navbar-item .bg-primary {
+	border-radius: 10px;
+}
+
+.bottom-navbar i {
+	font-size: 18px;
+}
+
+@media only screen and (min-width: 768px) {
+	.home-body {
+		max-width: 500px;
+		margin: auto;
+	}
+
+	.bottom-navbar {
+		width: 500px;
+  	margin-left: -1rem;
+	}
+}

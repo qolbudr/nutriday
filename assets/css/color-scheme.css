@@ -7,6 +7,7 @@
 
 .bg-primary {
 	background-color: var(--primary-color)!important;
+	color: white;
 }
 
 .bg-secondary {

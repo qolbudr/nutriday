@@ -4,6 +4,7 @@
 @import url('login.css');
 @import url('register.css');
 @import url('assesment-result.css');
+@import url('home.css');
 
 html {
 	width: 100%;
@@ -12,8 +13,43 @@ html {
 }
 
 body {
-	font-family: "Oxygen", sans-serif;
+	font-family: "Rubik", sans-serif;
 	/*background-color: var(--primary-color);*/
+}
+
+.circle-1 {
+  width: 20vh;
+  height: 20vh;
+  background-color: white;
+  position: absolute;
+  border-radius: 100%;
+  left: -10vh;
+  top: 0px;
+  opacity: .2;
+  animation: mycircle 5s infinite;
+}
+
+.circle-3 {
+  width: 5vh;
+  height: 5vh;
+  background-color: white;
+  position: absolute;
+  border-radius: 100%;
+  left: -2.5vh;
+  top: 0px;
+  opacity: .0;
+  animation: mycircle-1 5s infinite;
+  animation-delay: 3s;
+}
+
+@keyframes mycircle {
+	0% { top: 0px; left: -0.5vh; width: 5vh; height: 5vh; opacity: .2}
+	100% { top: -50px; left: -15vh; width: 30vh; height: 30vh; opacity: .02}
+}
+
+@keyframes mycircle-1 {
+	0% { top: 0px; left: -0.5vh; width: 5vh; height: 5vh; opacity: .2}
+	100% { top: -50px; left: -15vh; width: 30vh; height: 30vh; opacity: .02}
 }
 
 .form-control {
@@ -51,6 +87,7 @@ body {
 
 .card {
 	border-radius: 15px;
+	border:  none;
 }
 
 .bg {

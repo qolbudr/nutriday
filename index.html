@@ -2,6 +2,7 @@
 <html>
 	<head>
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta name="theme-color" content="#8b81f8">
 		<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
 		<link rel="stylesheet" type="text/css" href="assets/css/fontawesome.min.css">
 		<link rel="stylesheet" type="text/css" href="assets/css/styles.css">
@@ -40,9 +41,18 @@
 
 		  var db = firebase.firestore(app);
 
+		  // Router.navigate('assesment');
+
 		  firebase.auth().onAuthStateChanged((user) => {
-		  	if(user.uid) {
-					Router.navigate('assesment');
+		  	if(user) {
+		  		db.collection('assesment').doc(user.uid).get().then((snapshot) => {
+		  			if(snapshot.exists) {
+		  				var data = {assesment: snapshot.data(), user: user};
+		  				Router.navigate('home', data);
+		  			} else {
+		  				Router.navigate('assesment');
+		  			}
+		  		})
 				} else {
 					Router.navigate('login')
 				}
