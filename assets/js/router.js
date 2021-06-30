@@ -1,6 +1,5 @@
 const Router = {
 	navigate: function(page, parameter) {
-		window.location.hash = '/' + page
       $("#loader").css('visibility', 'visible')
       $(".changed-wrapper").css('filter', 'blur(3px)');
 		$.ajax({
@@ -17,7 +16,9 @@ const Router = {
             }
 
             $(".changed-wrapper").html(result)
-            $.getScript(`assets/js/page/${page}.js`)
+            $.getScript(`assets/js/page/${page}.js`)  
+
+            window.location.hash = '/' + page
          }
      })
 	}

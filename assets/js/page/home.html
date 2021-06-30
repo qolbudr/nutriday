@@ -1,8 +1,18 @@
-<div class="bg bg-primary">
-	<div class="wrapper p-3">
-		<div class="circle-1"></div>
-		<div class="circle-3"></div>
-		<div class="home">
+<div class="bg bg-primary position-relative">
+	<div class="bubbles">
+     <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+  </div>
+	<div class="home">
+		<div class="wrapper p-3">
 			<div class="home-head">
 				<div class="header d-flex justify-content-between align-items-center mb-3">
 					<div class="greeting mt-3">
@@ -23,82 +33,82 @@
 				</div>
 			</div>
 		</div>
-	</div>
-	<div class="home-body bg-secondary py-4">
-		<div class="bottom-navbar d-flex justify-content-around align-items-center shadowed">
-			<div class="bottom-navbar-item text-center">
-				<i class="fa fa-home"></i>
-			</div>
-			<div class="bottom-navbar-item">
-				<div class="bg-primary px-4 py-1">
-					<i class="fa fa-camera"></i>
+		<div class="home-body bg-white py-4">
+			<div class="bottom-navbar d-flex justify-content-around align-items-center shadowed">
+				<div class="bottom-navbar-item text-center" data="home">
+					<i class="fa fa-home"></i>
 				</div>
-			</div>
-			<div class="bottom-navbar-item text-center">
-				<i class="fa fa-bar-chart"></i>
-			</div>
-		</div>
-		<div class="date-selector d-flex justify-content-center mb-4">
-			<div class="btn-date btn-prev shadowed">
-				<i class="fa fa-arrow-left"></i>
-			</div> 
-			<div class="btn-now shadowed mx-2 full-date">
-				25 Oktober 2021
-			</div>
-			<div class="btn-date btn-prev shadowed">
-				<i class="fa fa-arrow-right"></i>
-			</div>
-		</div>
-		<div class="daily-tracker">
-			<div class="card shadowed p-3 mb-2">
-				<div class="d-flex justify-content-between align-items-center">
-					<div class="title">
-						<h5>SARAPAN</h5>
-						<div class="subtitle">
-							<i class="fa fa-fire mr-2"></i><span>0 kkal</span>
-						</div>
-					</div>
-					<div class="button-add">
-						<button class="btn btn-add-tracker" data="breakfast"><i class="fa fa-plus"></i></button>
+				<div class="bottom-navbar-item" data="add">
+					<div class="bg-primary px-4 py-2">
+						<i class="fa fa-search"></i>
 					</div>
 				</div>
-			</div>
-			<div class="card shadowed p-3 mb-2">
-				<div class="d-flex justify-content-between align-items-center">
-					<div class="title">
-						<h5>MAKAN SIANG</h5>
-						<div class="subtitle">
-							<i class="fa fa-fire mr-2"></i><span>0 kkal</span>
-						</div>
-					</div>
-					<div class="button-add">
-						<button class="btn btn-add-tracker" data="lunch"><i class="fa fa-plus"></i></button>
-					</div>
+				<div class="bottom-navbar-item text-center" data="chart">
+					<i class="fa fa-bar-chart"></i>
 				</div>
 			</div>
-			<div class="card shadowed p-3 mb-2">
-				<div class="d-flex justify-content-between align-items-center">
-					<div class="title">
-						<h5>CEMILAN</h5>
-						<div class="subtitle">
-							<i class="fa fa-fire mr-2"></i><span>0 kkal</span>
-						</div>
-					</div>
-					<div class="button-add">
-						<button class="btn btn-add-tracker" data="snacks"><i class="fa fa-plus"></i></button>
-					</div>
+			<div class="date-selector d-flex justify-content-center mb-4">
+				<div class="btn-date btn-prev shadowed">
+					<i class="fa fa-arrow-left"></i>
+				</div> 
+				<div class="btn-now shadowed mx-2 full-date">
+					25 Oktober 2021
+				</div>
+				<div class="btn-date btn-prev shadowed">
+					<i class="fa fa-arrow-right"></i>
 				</div>
 			</div>
-			<div class="card shadowed p-3 mb-5">
-				<div class="d-flex justify-content-between align-items-center">
-					<div class="title">
-						<h5>MAKAN MALAM</h5>
-						<div class="subtitle">
-							<i class="fa fa-fire mr-2"></i><span>0 kkal</span>
+			<div class="daily-tracker">
+				<div class="card shadowed p-3 mb-2">
+					<div class="d-flex justify-content-between align-items-center">
+						<div class="title">
+							<h5>SARAPAN</h5>
+							<div class="subtitle">
+								<i class="fa fa-fire mr-2"></i><span>0 kkal</span>
+							</div>
+						</div>
+						<div class="button-add">
+							<button class="btn btn-add-tracker" data="breakfast"><i class="fa fa-plus"></i></button>
 						</div>
 					</div>
-					<div class="button-add">
-						<button class="btn btn-add-tracker" data="dinner"><i class="fa fa-plus"></i></button>
+				</div>
+				<div class="card shadowed p-3 mb-2">
+					<div class="d-flex justify-content-between align-items-center">
+						<div class="title">
+							<h5>MAKAN SIANG</h5>
+							<div class="subtitle">
+								<i class="fa fa-fire mr-2"></i><span>0 kkal</span>
+							</div>
+						</div>
+						<div class="button-add">
+							<button class="btn btn-add-tracker" data="lunch"><i class="fa fa-plus"></i></button>
+						</div>
+					</div>
+				</div>
+				<div class="card shadowed p-3 mb-2">
+					<div class="d-flex justify-content-between align-items-center">
+						<div class="title">
+							<h5>CEMILAN</h5>
+							<div class="subtitle">
+								<i class="fa fa-fire mr-2"></i><span>0 kkal</span>
+							</div>
+						</div>
+						<div class="button-add">
+							<button class="btn btn-add-tracker" data="snacks"><i class="fa fa-plus"></i></button>
+						</div>
+					</div>
+				</div>
+				<div class="card shadowed p-3" style="margin-bottom: 80px">
+					<div class="d-flex justify-content-between align-items-center">
+						<div class="title">
+							<h5>MAKAN MALAM</h5>
+							<div class="subtitle">
+								<i class="fa fa-fire mr-2"></i><span>0 kkal</span>
+							</div>
+						</div>
+						<div class="button-add">
+							<button class="btn btn-add-tracker" data="dinner"><i class="fa fa-plus"></i></button>
+						</div>
 					</div>
 				</div>
 			</div>

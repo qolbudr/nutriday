@@ -1,5 +1,9 @@
 .home {
 	color: white;
+	position: relative;
+	left: 0;
+	right: 0;
+	z-index: 2;
 }
 
 .greeting .calendar {
@@ -46,8 +50,9 @@
 .btn-now {
 	background-color: white;
 	color: black;
-	padding: 10px 20px;
+	padding: 12px 60px;
 	border-radius: 5px;
+	font-size: 13px;
 }
 
 .shadowed {
