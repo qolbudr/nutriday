@@ -40,3 +40,7 @@ firebase.auth().onAuthStateChanged((user) => {
 	});
 })
 
+$(".btn-home").click(function() {
+	Router.navigate('home')
+})
+

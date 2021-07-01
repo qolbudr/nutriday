@@ -1,4 +1,4 @@
-const assesmentTitle = [
+var assesmentTitle = [
 	"Isi assesment yuk!",
 	"Berapa umur anda?",
 	"Berapa tinggi badan anda?",

@@ -53,7 +53,7 @@ class Result {
 			kal = kkb + ((this._activity / 100) * kkb)
 		}
 
-		return kal.toFixed(2);
+		return kal.toFixed();
 	}
 
 	getStatus() {

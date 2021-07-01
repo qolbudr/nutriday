@@ -48,7 +48,7 @@
 		  		window.localStorage.setItem('user', JSON.stringify(user));
 		  		db.collection('assesment').doc(user.uid).get().then((snapshot) => {
 		  			if(snapshot.exists) {
-		  				Router.navigate('add');
+		  				Router.navigate('home');
 		  			} else {
 		  				Router.navigate('assesment');
 		  			}
