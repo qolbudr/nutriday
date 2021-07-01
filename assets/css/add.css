@@ -1,0 +1,31 @@
+#food-item {
+	padding-bottom: 30px;
+}
+
+#food-item .card {
+	color: black;
+}
+
+#food-item img {
+	border-radius: 10px;
+}
+
+#food-item .title {
+	font-size: 15px;
+	font-weight: bold;
+}
+
+#food-item .subtitle {
+	font-size: 14px;
+}
+
+#food-item select {
+	font-size: 10px;
+	height: 28px;
+	padding: 0;
+	border: 1px solid #a9a9a93d;
+}
+
+#food-item button {
+	font-size: 10px;
+}

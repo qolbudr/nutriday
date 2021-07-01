@@ -1,7 +1,18 @@
-var data = param['assesment']
-var user = param['user']
-var calory = parseFloat(data['calories']).toFixed();
-var paramHome = param;
+var dbUser = window.localStorage.user;
+dbUser = JSON.parse(dbUser);
+
+var user = dbUser;
+
+db.collection('assesment').doc(user.uid).get().then((snapshot) => {
+	if(snapshot.exists) {
+		var data = snapshot.data();
+		var calory = parseFloat(data['calories']).toFixed();
+		$("#counter").text(`0/${data['calories']} kkal`);
+		$("#calory-progress").attr('aria-valuemax', calory);
+	} else {
+		Router.navigate('assesment');
+	}
+})
 
 var dayArray = ['MINGGU', 'SENIN', 'SELASA', 'RABU', 'KAMIS', 'JUM\'AT', 'SABTU'];
 var monthArray = ['JAN', 'FEB', 'MAR', 'APR', 'MEI', 'JUN', 'JUL', 'AGU', 'SEP', 'OKT', 'NOV', 'DES'];
@@ -15,11 +26,9 @@ var fulldate = day + ' ' + date + ' ' +  month;
 
 $("#name").text('Hai, ' + user.displayName);
 $("#profile-picture").attr('src', user.photoURL);
-$("#calory-progress").attr('aria-valuemax', calory);
-$("#counter").text(`0/${data['calories']} kkal`);
 $(".full-date").text(fulldate);
 
 $(".bottom-navbar-item").click(function() {
 	const page = $(this).attr('data');
-	Router.navigate(page, paramHome);
+	Router.navigate(page);
 })

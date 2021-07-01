@@ -94,6 +94,10 @@
 	color:  black;
 }
 
+.bottom-navbar-item {
+	cursor: pointer;
+}
+
 .bottom-navbar-item .bg-primary {
 	border-radius: 10px;
 }

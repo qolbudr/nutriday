@@ -45,10 +45,10 @@
 
 		  firebase.auth().onAuthStateChanged((user) => {
 		  	if(user) {
+		  		window.localStorage.setItem('user', JSON.stringify(user));
 		  		db.collection('assesment').doc(user.uid).get().then((snapshot) => {
 		  			if(snapshot.exists) {
-		  				var data = {assesment: snapshot.data(), user: user};
-		  				Router.navigate('home', data);
+		  				Router.navigate('add');
 		  			} else {
 		  				Router.navigate('assesment');
 		  			}

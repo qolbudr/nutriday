@@ -6,6 +6,8 @@ const Router = {
          type : 'get',
          url : `assets/js/page/${page}.html`,
          success : function(result){
+            $(".changed-wrapper").html(result) 
+            $.getScript(`assets/js/page/${page}.js`) 
             setTimeout(function() {
                $("#loader").css('visibility', 'hidden')
                $(".changed-wrapper").css('filter', 'unset');
@@ -14,10 +16,6 @@ const Router = {
             if(typeof parameter != "undefined") {
             	param = parameter;
             }
-
-            $(".changed-wrapper").html(result)
-            $.getScript(`assets/js/page/${page}.js`)  
-
             window.location.hash = '/' + page
          }
      })
