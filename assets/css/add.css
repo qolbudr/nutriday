@@ -37,7 +37,7 @@
     width: 100vw;
     object-fit: cover;
     z-index: 3;
-    /*background-color: black;*/
+    background-color: black;
 }
 
 #camera--view, #camera--sensor, #camera--output{
