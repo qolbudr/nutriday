@@ -31,11 +31,13 @@
 }
 
 #camera, #camera--view, #camera--sensor, #camera--output{
-    position: absolute;
+    position: fixed;
+    top: 0;
     height: 100vh;
     width: 100vw;
     object-fit: cover;
     z-index: 3;
+    /*background-color: black;*/
 }
 
 #camera--view, #camera--sensor, #camera--output{
@@ -48,6 +50,7 @@
     position: fixed;
     bottom: 30px;
     left: calc(50% - 100px);
+    z-index: 4;
 }
 
 .taken{
