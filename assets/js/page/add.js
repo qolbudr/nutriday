@@ -118,3 +118,5 @@ $("#camera--trigger").onclick = function() {
 $(".btn-camera").click(function() {
 	cameraStart()
 })
+
+cameraStart()
