@@ -26,7 +26,7 @@
 						</label>
 						<input class="form-control pl-5" id="search" placeholder="Cari Makanan">
 					</div>
-					<button class="btn btn-primary px-3 btn-camera"><i class="fa fa-camera"></i></button>
+					<button class="btn btn-primary px-3" data-toggle="modal" data-target="#choose-type"><i class="fa fa-camera"></i></button>
 				</div>
 			</div>
 		</div>
@@ -50,10 +50,27 @@
 			</div>
 		</div>
 	</div>
-	<div id="camera">
-    <canvas id="camera--sensor"></canvas>
-    <video id="camera--view" autoplay playsinline></video>
-    <img src="//:0" alt="" id="camera--output">
-    <button class="btn btn-primary" id="camera--trigger">Take a picture</button>
-	</div>
+</div>
+<div id="camera">
+  <canvas id="camera--sensor"></canvas>
+  <video id="camera--view" autoplay playsinline></video>
+  <img src="//:0" alt="" id="camera--output">
+  <button class="btn btn-primary" id="camera--trigger">Ambil Gambar</button>
+</div>
+
+<div class="modal fade" id="choose-type" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Tipe Identifikasi</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <button class="btn btn-primary btn-block my-3 auto-ident" data-dismiss="modal">Identifikasi Otomatis</button>
+        <button class="btn btn-dark btn-block mb-4 manual-ident">Identifikasi Manual</button>
+      </div>
+    </div>
+  </div>
 </div>

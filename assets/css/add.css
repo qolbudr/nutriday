@@ -30,36 +30,44 @@
 	font-size: 10px;
 }
 
+#camera {
+	visibility: hidden;
+}
+
 #camera, #camera--view, #camera--sensor, #camera--output{
     position: fixed;
+    height: 100%;
+    width: 100%;
     top: 0;
-    height: 100vh;
-    width: 100vw;
+    left: 0;
+    right: 0;
+    bottom: 0;
     object-fit: cover;
     z-index: 3;
-    background-color: black;
 }
 
 #camera--view, #camera--sensor, #camera--output{
-    transform: scaleX(-1);
-    filter: FlipH;
+   /* transform: scaleX(-1);
+    filter: FlipH;*/
 }
 
 #camera--trigger{
+		z-index: 4;
     width: 200px;
     position: fixed;
     bottom: 30px;
     left: calc(50% - 100px);
-    z-index: 4;
 }
 
-.taken{
+.taken {
+		position: absolute;
     height: 100px!important;
     width: 100px!important;
     transition: all 0.5s ease-in;
     border: solid 3px white;
     box-shadow: 0 5px 10px 0 rgba(0,0,0,0.2);
     top: 20px;
+    left: 20px;
     right: 20px;
-    z-index: 2;
+    z-index: 4;
 }
