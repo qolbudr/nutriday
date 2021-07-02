@@ -26,7 +26,7 @@
 						</label>
 						<input class="form-control pl-5" id="search" placeholder="Cari Makanan">
 					</div>
-					<button class="btn btn-primary px-3"><i class="fa fa-camera"></i></button>
+					<button class="btn btn-primary px-3 btn-camera"><i class="fa fa-camera"></i></button>
 				</div>
 			</div>
 		</div>
@@ -49,5 +49,11 @@
 				</div>
 			</div>
 		</div>
+	</div>
+	<div class="camera">
+    <canvas id="camera--sensor"></canvas>
+    <video id="camera--view" autoplay playsinline></video>
+    <img src="//:0" alt="" id="camera--output">
+    <button class="btn btn-primary" id="camera--trigger">Take a picture</button>
 	</div>
 </div>

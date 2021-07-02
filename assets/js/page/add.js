@@ -92,3 +92,29 @@ $("#search").keyup(function(e) {
 })
 
 setResult(arrayFood[el]);
+
+function cameraStart() {
+	var constraints = { video: { facingMode: "user" }, audio: false };
+	var track = null;
+  navigator.mediaDevices
+      .getUserMedia(constraints)
+      .then(function(stream) {
+      track = stream.getTracks()[0];
+      $("#camera--view").srcObject = stream;
+  })
+  .catch(function(error) {
+      alert("Oops. Something is broken.", error);
+  });
+}
+
+$("#camera--trigger").onclick = function() {
+    $("#camera--sensor").width = $("#camera--view").videoWidth;
+    $("#camera--sensor").height = $("#camera--view").videoHeight;
+    $("#camera--sensor").getContext("2d").drawImage($("#camera--view"), 0, 0);
+    $("#camera--output").src = $("#camera--sensor").toDataURL("image/webp");
+    $("#camera--output").classList.add("taken");
+};
+
+$(".btn-camera").click(function() {
+	cameraStart()
+})
