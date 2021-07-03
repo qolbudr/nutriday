@@ -5,6 +5,8 @@
 		<meta name="theme-color" content="#8b81f8">
 		<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
 		<link rel="stylesheet" type="text/css" href="assets/css/fontawesome.min.css">
+		<link href="//fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="assets/css/materialDateTimePicker.css" />
 		<link rel="stylesheet" type="text/css" href="assets/css/styles.css">
 	</head>
 	<body>
@@ -19,7 +21,10 @@
 		<script type="text/javascript" src="assets/js/firebase-analytics.js"></script>
 		<script type="text/javascript" src="assets/js/firebase-auth.js"></script>
 		<script type="text/javascript" src="assets/js/firebase-firestore.js"></script>
+		<script type="text/javascript" src="assets/js/firebase-storage.js"></script>
 		<script type="text/javascript" src="assets/js/jquery-3.2.1.slim.min.js"></script>
+		<script type="text/javascript" src="assets/js/moment-with-locales.min.js"></script>
+		<script type="text/javascript" src="assets/js/materialDateTimePicker.js"></script>
 		<script type="text/javascript" src="assets/js/popper.min.js"></script>
 		<script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
 		<script type="text/javascript" src="assets/js/sweetalert.min.js"></script>
@@ -48,7 +53,7 @@
 		  		window.localStorage.setItem('user', JSON.stringify(user));
 		  		db.collection('assesment').doc(user.uid).get().then((snapshot) => {
 		  			if(snapshot.exists) {
-		  				Router.navigate('home');
+		  				Router.navigate('add');
 		  			} else {
 		  				Router.navigate('assesment');
 		  			}

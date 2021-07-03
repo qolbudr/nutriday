@@ -16,7 +16,6 @@ const Router = {
             if(typeof parameter != "undefined") {
             	param = parameter;
             }
-            window.location.hash = '/' + page
          }
      })
 	}

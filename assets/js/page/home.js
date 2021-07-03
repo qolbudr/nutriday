@@ -7,13 +7,17 @@ var totalCalories = 0;
 var dayArray = ['MINGGU', 'SENIN', 'SELASA', 'RABU', 'KAMIS', 'JUM\'AT', 'SABTU'];
 var monthArray = ['JAN', 'FEB', 'MAR', 'APR', 'MEI', 'JUN', 'JUL', 'AGU', 'SEP', 'OKT', 'NOV', 'DES'];
 
-var d = new Date();
+if(typeof param != "undefined") {
+	var d = param;
+} else {
+	var d = new Date();
+}
+
 var date = d.getDate();
 var day = dayArray[d.getDay()];
 var month = monthArray[d.getMonth()];
 var fulldate = day + ' ' + date + ' ' +  month;
 
-var d = new Date();
 var date = d.getDate() < 10 ? `0${d.getDate()}` : d.getDate();
 var month = d.getMonth() + 1 < 10 ? `0${d.getMonth() + 1}` : d.getMonth() + 1;
 var year = d.getFullYear();
@@ -57,8 +61,16 @@ db.collection('tracker')
 		db.collection('tracker')
 			.doc(dbUser.uid).collection('0')
 			.doc(id).delete().then(() => {
-				swal({title: "Success", text: 'Data telah dihapus', icon: "success", buttons: { hapus: "OK" }})
-				Router.navigate('home')
+				swal({
+					title: "Success", 
+					text: 'Data sucessfully deleted', 
+					icon: "success", 
+					buttons: { 
+						hapus: "OK" 
+					}
+				}).then(function(value) {
+					Router.navigate('home')
+				})
 		})
 	})
 })
@@ -102,8 +114,16 @@ db.collection('tracker')
 		db.collection('tracker')
 			.doc(dbUser.uid).collection('1')
 			.doc(id).delete().then(() => {
-				swal({title: "Success", text: 'Data telah dihapus', icon: "success", buttons: { hapus: "OK" }})
-				Router.navigate('home')
+				swal({
+					title: "Success", 
+					text: 'Data sucessfully deleted', 
+					icon: "success", 
+					buttons: { 
+						hapus: "OK" 
+					}
+				}).then(function(value) {
+					Router.navigate('home')
+				})
 		})
 	})
 })
@@ -146,8 +166,16 @@ db.collection('tracker')
 		db.collection('tracker')
 			.doc(dbUser.uid).collection('2')
 			.doc(id).delete().then(() => {
-				swal({title: "Success", text: 'Data telah dihapus', icon: "success", buttons: { hapus: "OK" }})
-				Router.navigate('home')
+				swal({
+					title: "Success", 
+					text: 'Data sucessfully deleted', 
+					icon: "success", 
+					buttons: { 
+						hapus: "OK" 
+					}
+				}).then(function(value) {
+					Router.navigate('home')
+				})
 		})
 	})
 })
@@ -190,8 +218,16 @@ db.collection('tracker')
 		db.collection('tracker')
 			.doc(dbUser.uid).collection('3')
 			.doc(id).delete().then(() => {
-				swal({title: "Success", text: 'Data telah dihapus', icon: "success", buttons: { hapus: "OK" }})
-				Router.navigate('home')
+				swal({
+					title: "Success", 
+					text: 'Data sucessfully deleted', 
+					icon: "success", 
+					buttons: { 
+						hapus: "OK" 
+					}
+				}).then(function(value) {
+					Router.navigate('home')
+				})
 		})
 	})
 })
@@ -203,6 +239,10 @@ db.collection('assesment').doc(user.uid).get().then((snapshot) => {
 		$("#counter").text(`${totalCalories}/${data['calories']} kkal`);
 		$("#calory-progress").attr('aria-valuemax', totalCalories);
 		$("#calory-progress").css('width', ((totalCalories / data['calories']) * 100).toFixed() + '%');
+		db.collection('totalCalories').doc(user.uid).set({
+			date: completeDate,
+			total: totalCalories
+		})
 	} else {
 		Router.navigate('assesment');
 	}
@@ -217,3 +257,24 @@ $(".bottom-navbar-item").click(function() {
 	const page = $(this).attr('data');
 	Router.navigate(page);
 })
+
+$(".btn-next").click(function() {
+	d.setDate(d.getDate() + 1);
+	Router.navigate('home', d);
+})
+
+$(".btn-prev").click(function() {
+	d.setDate(d.getDate() - 1);
+	Router.navigate('home', d);
+})
+
+$(".btn-now").bootstrapMaterialDatePicker({ 
+	time:false,
+	format : 'YYYY-MM-DD',
+	clearButton: false,
+	switchOnClick : true,
+	cancelButton: false,
+}).on('dateSelected',function(e, date){
+	$(".dtp-close").click();
+	Router.navigate('home', date._d);
+});
