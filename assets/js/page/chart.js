@@ -34,26 +34,30 @@ function setChart(calories, range) {
 		var date = new Date(setter.setDate(setter.getDate() + 1));
 		var stringDate = date.getDate() + ' ' + date.getMonth()  + ' ' + date.getFullYear();
 
+		data[i] = 0;
+		
 		snapshot.forEach(function(doc) {
 			var dbData = doc.data();
 			var dbDate = new Date(dbData['date'].toDate());
 			var stringDb = dbDate.getDate() + ' ' + dbDate.getMonth() + ' ' + dbDate.getFullYear();
 
+			console.log(stringDate + ' ' + stringDb)
+
 			if(stringDate == stringDb) {
-				data.push(dbData['total']);
-			} else {
-				data.push(0);
+				data[i] = dbData['total'];
 			}
 		})
 
 		if(i % modulo == 0) {
 			labels.push(date.getDate() + '/' + (date.getMonth() + 1));
 		} else {
-			labels.push(date.getDate() + '/' + (date.getMonth() + 1));
+			labels.push('');
 		}
 
 		calLabels.push(calories);
 	}
+
+	console.log(data);
 		
 
 		$(".chart").html('<canvas id="chart-track"></canvas>');
