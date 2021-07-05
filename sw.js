@@ -26,11 +26,11 @@ workbox.precaching.precacheAndRoute([
     {url: "assets/fonts/Rubik-Medium.ttf", revision: null},
     {url: "assets/fonts/Rubik-Regular.ttf", revision: null},
 
-    {url: "assets/images/assesment/images/man.png", revision: null},
-    {url: "assets/images/assesment/images/women.png", revision: null},
-    {url: "assets/images/assesment/images/jobs/1.png", revision: null},
-    {url: "assets/images/assesment/images/jobs/2.png", revision: null},
-    {url: "assets/images/assesment/images/jobs/3.png", revision: null},
+    {url: "assets/images/assesment/man.png", revision: null},
+    {url: "assets/images/assesment/women.png", revision: null},
+    {url: "assets/images/assesment/jobs/1.png", revision: null},
+    {url: "assets/images/assesment/jobs/2.png", revision: null},
+    {url: "assets/images/assesment/jobs/3.png", revision: null},
     {url: "assets/images/logo.png", revision: null},
 
     {url: "assets/js/bootstrap.min.js", revision: null},
