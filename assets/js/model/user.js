@@ -71,21 +71,7 @@ class User {
       $(".changed-wrapper").css('filter', 'unset');
 	    var errorCode = error.code;
 	    var errorMessage = error.message;
-	    return swal({title: "Error", text: errorMessage ,icon: "error", buttons: { hapus: "OK" }})
+	    return swal({title: "Error", text: errorMessage, icon: "error", buttons: { hapus: "OK" }})
 	  });
-	}
-
-	logout() {
-		$("#loader").css('visibility', 'visible')
-    $(".changed-wrapper").css('filter', 'blur(5px)');
-		firebase.auth().signOut().then(() => {
-			$("#loader").css('visibility', 'hidden')
-      $(".changed-wrapper").css('filter', 'unset');
-      Router.navgate('login')
-		}).catch((error) => {
-			$("#loader").css('visibility', 'hidden')
-      $(".changed-wrapper").css('filter', 'unset');
-		  return swal({title: "Error", text: error.message ,icon: "error", buttons: { hapus: "OK" }})
-		});
 	}
 }

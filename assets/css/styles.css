@@ -19,6 +19,10 @@ body {
 	/*background-color: var(--primary-color);*/
 }
 
+.cursor-pointer {
+  cursor: pointer!important;
+}
+
 .form-control {
 	border-radius: 15px;
 	border: none;

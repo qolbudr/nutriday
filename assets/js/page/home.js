@@ -13,6 +13,17 @@ if(typeof param != "undefined") {
 	var d = new Date();
 }
 
+function logout() {
+	firebase.auth().signOut().then(() => {
+    window.localStorage.removeItem('user');
+    Router.navigate('login');
+	}).catch((error) => {
+		$("#loader").css('visibility', 'hidden')
+    $(".changed-wrapper").css('filter', 'unset');
+	  return swal({title: "Error", text: error.message ,icon: "error", buttons: { hapus: "OK" }})
+	});
+}
+
 var date = d.getDate();
 var day = dayArray[d.getDay()];
 var month = monthArray[d.getMonth()];
@@ -26,7 +37,7 @@ var completeDate = `${year}-${month}-${date}`;
 db.collection('tracker')
 	.doc(dbUser.uid).collection('0')
 	.where('date', '==', completeDate)
-	.onSnapshot(function(snapshot) {
+	.get().then(function(snapshot) {
 		var html = '';
 		var breakfastTotal = 0;
 		snapshot.forEach(function(doc) {
@@ -79,7 +90,7 @@ db.collection('tracker')
 db.collection('tracker')
 	.doc(dbUser.uid).collection('1')
 	.where('date', '==', completeDate)
-	.onSnapshot(function(snapshot) {
+	.get().then(function(snapshot) {
 		var html = '';
 		var lunchTotal = 0;
 		snapshot.forEach(function(doc) {
@@ -131,7 +142,7 @@ db.collection('tracker')
 db.collection('tracker')
 	.doc(dbUser.uid).collection('2')
 	.where('date', '==', completeDate)
-	.onSnapshot(function(snapshot) {
+	.get().then(function(snapshot) {
 		var html = '';
 		var snacksTotal = 0;
 		snapshot.forEach(function(doc) {
@@ -183,7 +194,7 @@ db.collection('tracker')
 db.collection('tracker')
 	.doc(dbUser.uid).collection('3')
 	.where('date', '==', completeDate)
-	.onSnapshot(function(snapshot) {
+	.get().then(function(snapshot) {
 		var html = '';
 		var dinnerTotal = 0;
 		snapshot.forEach(function(doc) {
@@ -278,3 +289,19 @@ $(".btn-now").bootstrapMaterialDatePicker({
 	$(".dtp-close").click();
 	Router.navigate('home', date._d);
 });
+
+$(".btn-logout").click(function() {
+	swal({
+		title: "Keluar", 
+		text: 'Apakah anda yakin ingin keluar ?', 
+		icon: "info", 
+		buttons: { 
+			cancel: "Batal",
+			keluar: "OK"
+		}
+	}).then(function(value) {
+		if(value == 'keluar') {
+			logout();
+		}
+	})
+})

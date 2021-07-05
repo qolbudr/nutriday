@@ -1,13 +1,21 @@
 <!doctype html>
 <html>
 	<head>
+		<link href="//fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<meta name="theme-color" content="#8b81f8">
 		<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
 		<link rel="stylesheet" type="text/css" href="assets/css/fontawesome.min.css">
-		<link href="//fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 		<link rel="stylesheet" type="text/css" href="assets/css/materialDateTimePicker.css" />
 		<link rel="stylesheet" type="text/css" href="assets/css/styles.css">
+		<link rel="icon" href="assets/images/logo.png">
+		<title>NutriDay - Penuhi nutrisi harianmu</title>
+		<meta name="description" content="Sebuah aplikasi yang akan membantu anda untuk hidup sehat dengan nutrisi yang cukup"/>
+		<link rel="manifest" href="manifest.json">
+		<link rel="apple-touch-icon" sizes="512x512" href="assets/images/icon/512x512.png"/>
+		<link rel="apple-touch-icon" sizes="384x384" href="assets/images/icon/384x384.png"/>
+		<link rel="apple-touch-icon" sizes="256x256" href="assets/images/icon/256x256.png"/>
+		<link rel="apple-touch-icon" sizes="192x192" href="assets/images/icon/192x192.png"/>
 	</head>
 	<body>
 		<div class="changed-wrapper m-0 p-0">
@@ -32,6 +40,13 @@
 		<script type="text/javascript" src="assets/js/router.js"></script>
 		<script type="text/javascript" src="assets/js/loader.js"></script>
 		<script type="text/javascript">
+
+			if ("serviceWorker" in navigator) {
+				window.addEventListener("load", function() {
+					navigator.serviceWorker.register("sw.js")
+				});
+			}
+		
 			var firebaseConfig = {
 			   apiKey: "AIzaSyBCwHsBVCxEYlI-perlLJ_pA7zyyB-_03E",
 			   authDomain: "nutriday-e8548.firebaseapp.com",

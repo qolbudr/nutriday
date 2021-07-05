@@ -14,10 +14,6 @@ $(".btn-login-google").click(function() {
 	user.loginWithGoogle();
 })
 
-$(".btn-logout").click(function() {
-	user.logout();
-})
-
 $(".goto-register").click(function() {
 	Router.navigate('register')
 })
