@@ -35,7 +35,7 @@ class User {
     $("#loader").css('visibility', 'visible')
     $(".changed-wrapper").css('filter', 'blur(5px)');
 		firebase.auth()
-	  .signInWithPopup(provider)
+	  .signInWithRedirect(provider)
 	  .then((result) => {
 	    var credential = result.credential;
 	    var token = credential.accessToken;
