@@ -28,7 +28,6 @@ var date = d.getDate();
 var day = dayArray[d.getDay()];
 var month = monthArray[d.getMonth()];
 var fulldate = day + ' ' + date + ' ' +  month;
-var stringDate = d.getFullYear() + '-' + d.getMonth() + '-' + d.getDate();
 
 var date = d.getDate() < 10 ? `0${d.getDate()}` : d.getDate();
 var month = d.getMonth() + 1 < 10 ? `0${d.getMonth() + 1}` : d.getMonth() + 1;
@@ -244,6 +243,8 @@ db.collection('tracker')
 	})
 })
 
+console.log(d + ' - ' + completeDate)
+
 db.collection('assesment').doc(user.uid).get().then((snapshot) => {
 	if(snapshot.exists) {
 		var data = snapshot.data();
@@ -251,7 +252,7 @@ db.collection('assesment').doc(user.uid).get().then((snapshot) => {
 		$("#counter").text(`${totalCalories}/${data['calories']} kkal`);
 		$("#calory-progress").attr('aria-valuemax', totalCalories);
 		$("#calory-progress").css('width', ((totalCalories / data['calories']) * 100).toFixed() + '%');
-		db.collection('totalCalories').doc(stringDate).set({
+		db.collection('totalCalories').doc(completeDate).set({
 			uid: user.uid,
 			date: d,
 			total: totalCalories

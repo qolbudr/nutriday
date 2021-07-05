@@ -35,13 +35,11 @@ function setChart(calories, range) {
 		var stringDate = date.getDate() + ' ' + date.getMonth()  + ' ' + date.getFullYear();
 
 		data[i] = 0;
-		
+
 		snapshot.forEach(function(doc) {
 			var dbData = doc.data();
 			var dbDate = new Date(dbData['date'].toDate());
 			var stringDb = dbDate.getDate() + ' ' + dbDate.getMonth() + ' ' + dbDate.getFullYear();
-
-			console.log(stringDate + ' ' + stringDb)
 
 			if(stringDate == stringDb) {
 				data[i] = dbData['total'];
