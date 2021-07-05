@@ -240,7 +240,7 @@ db.collection('assesment').doc(user.uid).get().then((snapshot) => {
 		$("#calory-progress").attr('aria-valuemax', totalCalories);
 		$("#calory-progress").css('width', ((totalCalories / data['calories']) * 100).toFixed() + '%');
 		db.collection('totalCalories').doc(user.uid).set({
-			date: completeDate,
+			date: d,
 			total: totalCalories
 		})
 	} else {
