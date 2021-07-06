@@ -46,12 +46,7 @@ function setChart(calories, range) {
 			}
 		})
 
-		if(i % modulo == 0) {
-			labels.push(date.getDate() + '/' + (date.getMonth() + 1));
-		} else {
-			labels.push('');
-		}
-
+		labels.push(date.getDate() + '/' + (date.getMonth() + 1));
 		calLabels.push(calories);
 	}
 

@@ -8,11 +8,11 @@ result.age = savedData['age'];
 result.activity = savedData['activity'];
 result.gender = savedData['gender'];
 
-const bmi = result.BMI();
-const bbi = result.BBI();
-const activity = result.getActivity();
-const calories = result.getCalories();
-const bmi_sub = result.getStatus();
+var bmi = result.BMI();
+var bbi = result.BBI();
+var activity = result.getActivity();
+var calories = result.getCalories();
+var bmi_sub = result.getStatus();
 
 $("#bmi").text(bmi);
 $("#bbi").text(bbi + ' Kg')

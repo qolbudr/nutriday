@@ -282,6 +282,10 @@ $(".btn-prev").click(function() {
 	Router.navigate('home', d);
 })
 
+$(".btn-edit-assesment").click(function() {
+	Router.navigate('assesment');
+})
+
 $(".btn-now").bootstrapMaterialDatePicker({ 
 	time:false,
 	format : 'YYYY-MM-DD',
