@@ -41,11 +41,11 @@
 		<script type="text/javascript" src="assets/js/loader.js"></script>
 		<script type="text/javascript">
 
-			if ("serviceWorker" in navigator) {
-				window.addEventListener("load", function() {
-					navigator.serviceWorker.register("sw.js")
-				});
-			}
+			// if ("serviceWorker" in navigator) {
+			// 	window.addEventListener("load", function() {
+			// 		navigator.serviceWorker.register("sw.js")
+			// 	});
+			// }
 		
 			var firebaseConfig = {
 			   apiKey: "AIzaSyBCwHsBVCxEYlI-perlLJ_pA7zyyB-_03E",
@@ -67,16 +67,18 @@
 		  firebase.auth().onAuthStateChanged((user) => {
 		  	if(user) {
 		  		window.localStorage.setItem('user', JSON.stringify(user));
-		  		db.collection('assesment').doc(user.uid).get().then((snapshot) => {
-		  			if(snapshot.exists) {
-		  				Router.navigate('home');
-		  			} else {
-		  				Router.navigate('assesment');
-		  			}
-		  		})
+		  		if(user.emailVerified) {
+			  		db.collection('assesment').doc(user.uid).get().then((snapshot) => {
+			  			if(snapshot.exists) {
+			  				Router.navigate('home');
+			  			} else {
+			  				Router.navigate('assesment');
+			  			}
+			  		})
+		  		}
 				} else {
 					Router.navigate('login')
-				}
+				} 
 			})
 		</script>
 	</body>

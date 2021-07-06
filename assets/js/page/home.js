@@ -252,7 +252,7 @@ db.collection('assesment').doc(user.uid).get().then((snapshot) => {
 		$("#counter").text(`${totalCalories}/${data['calories']} kkal`);
 		$("#calory-progress").attr('aria-valuemax', totalCalories);
 		$("#calory-progress").css('width', ((totalCalories / data['calories']) * 100).toFixed() + '%');
-		db.collection('totalCalories').doc(completeDate).set({
+		db.collection('totalCalories').doc(completeDate + ':' + user.uid).set({
 			uid: user.uid,
 			date: d,
 			total: totalCalories

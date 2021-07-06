@@ -63,6 +63,7 @@ class User {
 			}).then(() => {
 				$("#loader").css('visibility', 'hidden')
 	      $(".changed-wrapper").css('filter', 'unset');
+	      window.localStorage.setItem('user', JSON.stringify(firebase.auth().currentUser));
 				return swal({title: "Success", text: "Registrtion success please check your email for confirmation", icon: "success", buttons: { hapus: "OK" }})
 			})
 	  })
