@@ -41,11 +41,11 @@
 		<script type="text/javascript" src="assets/js/loader.js"></script>
 		<script type="text/javascript">
 
-			// if ("serviceWorker" in navigator) {
-			// 	window.addEventListener("load", function() {
-			// 		navigator.serviceWorker.register("sw.js")
-			// 	});
-			// }
+			if ("serviceWorker" in navigator) {
+				window.addEventListener("load", function() {
+					navigator.serviceWorker.register("sw.js")
+				});
+			}
 		
 			var firebaseConfig = {
 			   apiKey: "AIzaSyBCwHsBVCxEYlI-perlLJ_pA7zyyB-_03E",
